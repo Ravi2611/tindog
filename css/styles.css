@@ -1,0 +1,256 @@
+body {
+  font-family: "Montserrat";
+}
+
+#title {
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+h1 {
+  font-family: "Montserrat-Black";
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: "Montserrat-Black";
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-family: "Montserrat-Black";
+  font-size: 1.5rem;
+}
+
+p {
+  color: #8f8f8f
+}
+
+.container-fluid {
+  padding: 3% 15% 7%;
+}
+
+/* Navigation Bar */
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+}
+
+/* Download Buttons */
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Title Image */
+.title-image {
+  width: 60%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 30%;
+}
+
+/* if we want the z index to work set position to absolute or relative or fixed (static position wont work)
+jisko aage ya piche krna hai usko z ind dena hoga aur ek jisko apne jagah pe hi rakhna hai usko position absolute dena hai and baki ko relative*/
+/*Features section*/
+/* Use relative because absolutese this id will go out of the html flow */
+#features {
+  padding: 7% 15%;
+  background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 5%;
+}
+
+/* Icon */
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
+}
+
+/* Testimonials */
+#testimonials {
+  text-align: center;
+  background-color: #ef8172;
+  color: #fff;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+#press {
+  background-color: #ef8172;
+  text-align: center;
+  padding: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px;
+}
+
+/* Pricing section */
+#pricing {
+  padding: 100px;
+  text-align: center;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
+/* CTA call to action */
+#cta {
+  background-color: #ff4c68;
+  color: #fff;
+  padding: 7% 15%;
+  text-align: center;
+}
+
+.cta-heading {
+  font-family: "Montserrat-Black";
+  font-size: 4rem;
+  line-height: 1.5;
+}
+
+/* Footer */
+#footer {
+  padding: 5% 15%;
+  text-align: center;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: grey;
+}
+
+.social-icon {
+  margin: 6px 10px;
+}
+
+/* @Media Query */
+@media (max-width: 1028px) {
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+/* Note:
+
+1> selector1, selector2, selector3, .... {
+
+  }
+  in the above format we can apply css to more than one selectors
+  for ex-> h1, h2, h3, h4{
+
+  }
+
+2>selector1 and selector2 k bich me space hai
+  selector1 selector2{
+
+  }
+  in the above format where there is no comma we read it as
+  "all the selector2 inside selector1 will be affected by the code inside the curly bracket"
+  i.e from left to right.
+  ***NOTE: this format can only be used when selector2 is child and selector1 is parent
+  <div class="container">
+    <h1 class="title">Hello World!</h1>
+  </div>
+  <div class="container-fluid">
+    <h1 class="title">Good Bye World!</h1>
+  </div>
+
+  CSS
+  .container .title{
+  color:red;
+  }
+  isse bas hello world red hoga
+
+3>selector1selector2{
+    color:red;
+  }
+  here there is no space between the two selector
+  there is no parent child relation here like the previous one
+  this means div or section or whatever has these two classes should change color ot red;
+  ex
+  <div class="container">
+    <h1 id="heading" class="title">Hello World!</h1>
+  </div>
+  <div class="container-fluid">
+    <h1 class="title">Good Bye World!</h1>
+  </div>
+
+  CSS
+   .container.title{
+    color:red;
+   }
+   Hello World will be red and Goodbye world will be black
+   OR
+  CSS
+  h1#heading{
+    color:red;
+  }
+   Hello World will be red and Goodbye world will be black
+
+
+*****FROM THE ABOVE 3 POINTS WE SEE THAT WE DONT NEED TO ADD NEW CLASSES ALWAYS,
+     WE CAN SIMPLY COMBINE CLASSES
+
+4>HTML positioning
+
+  a> position static : no change
+  b> position relative : we can change the position relative to its actual position just after writing the HTML code
+     ex-> if we write position:relative left:30px .. it will shift right by 30px
+  c> position absolute : here we can change the position relative to the parent div in which it is contained (body very often)
+     ex-> if we write right:30px than it will be left from right side of the parent
+
+5> padding and margin
+  changing margin will increase or decrease the space around the div from other divs
+  changing margin will increase space or decrease space between the constituents of div and the border of div.
+
+6> z->indexing
+   jo section ko upar ya niche karna hai uska position static se change krna hoga(by default static rehta hai)
+   jisko apne jagah pe rakhna hai uska position: absolute kr dena hai and baki jisko change krna hai uska position:relative
+
+7> if we have too many conflicting code in CSS than priority order is id>class>selector
+8> try to use id very rarely use only for section
+9> at any cost dont prefer inline CSS .
+*/
